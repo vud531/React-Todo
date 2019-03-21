@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Todo.css";
 // const getInput = (e) => {
 //     e.target.classList.toggle('completed');
 //     e.target.classList.toggle('incompleted');

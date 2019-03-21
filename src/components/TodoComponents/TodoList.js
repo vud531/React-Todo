@@ -13,7 +13,8 @@ const TodoList = props => {
                 <Todo
                 id={index} 
                 toDoProps={todo}
-                markCompleted={props.markCompleted} /></li>)
+                markCompleted={props.markCompleted} 
+                /></li>)
             )}
         </ul>
     );

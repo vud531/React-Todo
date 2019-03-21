@@ -37,8 +37,14 @@ class App extends React.Component {
   updateList = event => {
     event.preventDefault();
     const newTodo = this.state.newTodo;
+    newTodo.key = Date.now();
     this.setState({
-      todos: [...this.state.todos, newTodo]
+      todos: [...this.state.todos, newTodo],
+      newTodo: {
+        todo: "",
+        completed: false,
+        key: null
+      }
     });
   };
 
@@ -49,18 +55,20 @@ class App extends React.Component {
     })
   }
 
-  // markCompleted = event => {
-  //   console.log(event.target);
-  //   event.target.classList.toggle('completed');
-  //   event.target.classList.toggle('incompleted');
-  //   const index = event.target.dataset.id;
-  //   console.log(index); 
-  //   this.setState(
-  //     { 
-  //       todos: { [index]: { ["completed"]: false }
-  //     }
-  //   });
-  // } 
+  markCompleted = event => {
+    // console.log(event.target);
+    event.target.classList.toggle('completed');
+    event.target.classList.toggle('incompleted');
+    const index = event.target.dataset.id;
+    const newTodos = [...this.state.todos]
+    newTodos[index].completed = !newTodos[index].completed
+    // console.log(index); 
+    this.setState({
+      todos: newTodos
+    });
+
+    console.log(this.state.todos);
+  } 
 
   
   render() {
@@ -75,7 +83,7 @@ class App extends React.Component {
 
         <TodoList 
         todos={this.state.todos}
-        // markCompleted={this.markCompleted} 
+        markCompleted={this.markCompleted} 
         />
       </div>
     );
