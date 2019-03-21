@@ -3,10 +3,10 @@
 import React from 'react';
 import Todo from './Todo';
 const TodoList = props => {
-    console.log(props.todos);
+    // console.log(props.todos);
     return (
         <ul className="todos">
-            {props.todos.map((todo, index) => (<li className="todo"><Todo key={index} status={todo.completed} description={todo.todo} /></li>))}
+            {props.todos.map((todo, index) => (<li key={todo.key} className="todo"><Todo toDoProps={todo} /></li>))}
         </ul>
     );
 }
