@@ -19,41 +19,63 @@ class App extends React.Component {
       newTodo: {
         todo: "",
         completed: false,
-        key: Date.now()
+        key: null
       }
     }
   }
 
   handleChanges = event => {
     console.log('event: ', event.target.value);
-    const input = event.target.value;
+    // const input = event.target.value;
     // update the name property on state
-    this.setState((state,prop) => {
-      console.log(state.newTodo);
-      state.newTodo.todo += input;
-      // console.log(prop);
+    this.setState({ newTodo: {
+      [event.target.name]:event.target.value,
+      key:Date.now() }
     });
-
-    // console.log(this)
   };
 
   updateList = event => {
     event.preventDefault();
-    const newTodo = this.newTodo;
+    const newTodo = this.state.newTodo;
     this.setState({
       todos: [...this.state.todos, newTodo]
     });
   };
 
+  clearCompleted = event => {
+    event.preventDefault();
+    this.setState({
+      todos:todos.filter(todo => !todo.completed)
+    })
+  }
+
+  // markCompleted = event => {
+  //   console.log(event.target);
+  //   event.target.classList.toggle('completed');
+  //   event.target.classList.toggle('incompleted');
+  //   const index = event.target.dataset.id;
+  //   console.log(index); 
+  //   this.setState(
+  //     { 
+  //       todos: { [index]: { ["completed"]: false }
+  //     }
+  //   });
+  // } 
+
   
   render() {
     return (
       <div>
-        <TodoList todos={this.state.todos} />
         <TodoForm 
         formProps={this.state.newTodo}
         handleChanges={this.handleChanges}
         updateList={this.updateList}
+        clearCompleted={this.clearCompleted}
+        />
+
+        <TodoList 
+        todos={this.state.todos}
+        // markCompleted={this.markCompleted} 
         />
       </div>
     );

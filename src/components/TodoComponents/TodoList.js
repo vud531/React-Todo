@@ -6,7 +6,15 @@ const TodoList = props => {
     // console.log(props.todos);
     return (
         <ul className="todos">
-            {props.todos.map((todo, index) => (<li key={todo.key} className="todo"><Todo toDoProps={todo} /></li>))}
+            {props.todos.map((todo, index) => (
+                <li 
+                key={todo.key} 
+                className="todo">
+                <Todo
+                id={index} 
+                toDoProps={todo}
+                markCompleted={props.markCompleted} /></li>)
+            )}
         </ul>
     );
 }
