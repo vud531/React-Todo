@@ -30,6 +30,7 @@ class App extends React.Component {
     // update the name property on state
     this.setState({ newTodo: {
       [event.target.name]:event.target.value,
+      completed: false,
       key:Date.now() }
     });
   };
@@ -50,15 +51,14 @@ class App extends React.Component {
 
   clearCompleted = event => {
     event.preventDefault();
+    console.log(this.state.todos);
     this.setState({
-      todos:todos.filter(todo => !todo.completed)
+      todos:this.state.todos.filter(todo => !todo.completed)
     })
   }
 
   markCompleted = event => {
-    // console.log(event.target);
-    // event.target.classList.toggle('completed');
-    // event.target.classList.toggle('incompleted');
+
     const index = event.target.dataset.id;
     const newTodos = [...this.state.todos]
     newTodos[index].completed = !newTodos[index].completed
