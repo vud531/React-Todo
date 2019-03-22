@@ -2,6 +2,8 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 import Todo from './Todo';
+import './TodoList.css';
+
 const TodoList = props => {
     // console.log(props.todos);
     return (
@@ -13,7 +15,8 @@ const TodoList = props => {
                 <Todo
                 id={index} 
                 toDoProps={todo}
-                markCompleted={props.markCompleted} /></li>)
+                markCompleted={props.markCompleted} 
+                /></li>)
             )}
         </ul>
     );

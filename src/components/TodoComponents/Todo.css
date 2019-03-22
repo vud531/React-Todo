@@ -1,4 +1,22 @@
+.todo{
+    background-color: white;
+    box-shadow: 0 5px 5px 1px #e8ebef;
+    border-radius: 15px; 
+    margin-bottom: 20px;
+    padding: 15px;
+    line-height: 2;
+}
 .completed {
     text-decoration: underline;
     text-decoration-line: line-through;
+}
+
+p.pending {
+    font-size: 18px;
+    color: #7994b2;
+}
+
+p.passed-due {
+    font-size: 18px;
+    color: #f57a7a;
 }
