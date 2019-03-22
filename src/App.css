@@ -1,0 +1,13 @@
+.app {
+    position: relative;
+    max-width: 480px;
+    width: 100%;
+    background-color: #f6f6f6;
+    margin: auto;
+}
+
+.app * {
+    font-size: 20px;
+    color: #05386b;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

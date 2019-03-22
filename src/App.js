@@ -1,12 +1,13 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import "./App.css";
 
 let todos =
   [
-    {todo: "create a todo app", completed: false, key:1},
-    {todo: "learn react class component", completed: false, key:2},
-    {todo: "read articles on react", completed: false, key:3},
+    {todo: "create a todo app", deadline: "3/10/2019",completed: false, key:1},
+    {todo: "learn react class component", deadline: "4/10/2019", completed: false, key:2},
+    {todo: "read articles on react", deadline: "5/10/2019", completed: false, key:3},
   ];
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -19,6 +20,7 @@ class App extends React.Component {
       newTodo: {
         todo: "",
         completed: false,
+        // deadline: new Date(),
         key: null
       }
     }
@@ -28,11 +30,9 @@ class App extends React.Component {
     console.log('event: ', event.target.value);
     // const input = event.target.value;
     // update the name property on state
-    this.setState({ newTodo: {
-      [event.target.name]:event.target.value,
-      completed: false,
-      key:Date.now() }
-    });
+    const newTodo = this.state.newTodo;
+    newTodo[event.target.name] = event.target.value;
+    this.setState({ newTodo: newTodo });
   };
 
   updateList = event => {
@@ -73,7 +73,7 @@ class App extends React.Component {
   
   render() {
     return (
-      <div>
+      <div className="app">
         <TodoForm 
         formProps={this.state.newTodo}
         handleChanges={this.handleChanges}
