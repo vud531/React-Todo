@@ -57,8 +57,8 @@ class App extends React.Component {
 
   markCompleted = event => {
     // console.log(event.target);
-    event.target.classList.toggle('completed');
-    event.target.classList.toggle('incompleted');
+    // event.target.classList.toggle('completed');
+    // event.target.classList.toggle('incompleted');
     const index = event.target.dataset.id;
     const newTodos = [...this.state.todos]
     newTodos[index].completed = !newTodos[index].completed
