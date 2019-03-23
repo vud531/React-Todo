@@ -8,9 +8,15 @@ import "./Todo.css";
 //     console.log(e.target.classList)
 // }
 const Todo = props => {
-    // console.log(props);
-    const deadline = new Date(props.toDoProps.deadline);
-    const status = (deadline >= new Date()) ? "pending" : "passed-due";
+    let deadline, status;
+    if (props.toDoProps.deadline) {
+        console.log(props.toDoProps.deadline);
+        deadline = new Date(props.toDoProps.deadline).toDateString();
+        status = (new Date(props.toDoProps.deadline) >= new Date()) ? "pending" : "passed-due";
+    } else {
+        deadline=""
+        status=""
+    }
     return (
         <div className="todo-item">
             <p className={props.toDoProps.completed? "completed": "incompleted"}
@@ -20,7 +26,7 @@ const Todo = props => {
             </p>
 
             <p className={status}>
-                {new Date(deadline).toDateString()}
+                {deadline}
             </p>
         </div>
 

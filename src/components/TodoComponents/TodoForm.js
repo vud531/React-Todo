@@ -23,7 +23,6 @@ const TodoForm = props => {
                 id="deadline" 
                 type="date" 
                 name="deadline"
-                // value="2019-02-02"
                 onChange={props.handleChanges}  
                 />
             </div>

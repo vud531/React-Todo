@@ -38,6 +38,12 @@ class App extends React.Component {
   updateList = event => {
     event.preventDefault();
     const newTodo = this.state.newTodo;
+    console.log(newTodo)
+    if (newTodo.todo === ""){
+      alert("Please enter a valid task");
+      return;
+    }
+
     newTodo.key = Date.now();
     this.setState({
       todos: [...this.state.todos, newTodo],
