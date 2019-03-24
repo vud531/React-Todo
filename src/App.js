@@ -7,7 +7,7 @@ let todos =
   [
     {todo: "create a todo app", deadline: "3/10/2019",completed: false, key:1},
     {todo: "learn react class component", deadline: "4/10/2019", completed: false, key:2},
-    {todo: "read articles on react", deadline: "5/10/2019", completed: false, key:3},
+    {todo: "read articles on react", deadline: "5/10/2019", completed: true, key:3},
   ];
 class App extends React.Component {
   // you will need a place to store your state in this component.
